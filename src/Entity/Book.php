@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -20,6 +21,7 @@ class Book
     private ?string $title = null;
 
     #[ORM\Column(name: 'date_of_publication', type: 'date')]
+    #[Assert\LessThanOrEqual('today')]
     private ?\DateTimeInterface $dateOfPublication = null;
 
     public function getId(): ?int

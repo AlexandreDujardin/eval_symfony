@@ -2,5 +2,17 @@
 {% extends 'book/index.html.twig' %}
 
 {% block main %}
-	<h2>Fiche du livre ??</h2>
+	<h2>Title : {{ book.title }}</h2>
+	<p>Date of Publication : {{ book.dateOfPublication|date('Y-m-d') }}</p>
+ 
+	{# {{form(form)}} #}
+
+	{{ form_start(form) }}
+
+	{{ form_errors(form) }}
+
+	{{ form_row(form.delete) }}
+	{{ form_end(form) }}
+
+	<a href="{{url('list_books')}}">Revenir à la liste des livres </a>
 {% endblock %}
